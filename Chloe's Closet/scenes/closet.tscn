@@ -1,0 +1,267 @@
+[gd_scene load_steps=9 format=3 uid="uid://c47dpkrirhyl2"]
+
+[ext_resource type="Script" uid="uid://cv8u1hg2meoeb" path="res://scripts/hair.gd" id="1_b253r"]
+[ext_resource type="Script" uid="uid://bjyrvkwcuhhfe" path="res://closet.gd" id="1_cg8se"]
+[ext_resource type="Script" uid="uid://cpjfqoclg4i1b" path="res://scripts/shirt.gd" id="3_cg8se"]
+[ext_resource type="Script" uid="uid://bpwnrpex307wy" path="res://scripts/pants.gd" id="4_02ow7"]
+[ext_resource type="Script" uid="uid://dvs3q2l1retia" path="res://creator_screen.gd" id="5_b253r"]
+[ext_resource type="Script" uid="uid://d4fori8mmtfts" path="res://scripts/shoes.gd" id="5_mlsif"]
+[ext_resource type="Script" uid="uid://bah1fc1h3ytb2" path="res://collection_button.gd" id="6_j06l2"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wvv42"]
+load_path = "res://.godot/imported/Chloe00-3.png.png-0dae5d119f558b1d52c6629cc4ad963a.ctex"
+
+[node name="closet" type="Node2D"]
+position = Vector2(-5, 0)
+script = ExtResource("1_cg8se")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -106.0
+offset_top = -35.0
+offset_right = 142.0
+offset_bottom = 94.0
+color = Color(0.62210196, 0.76047295, 0.8257309, 1)
+
+[node name="Skeleton" type="Node2D" parent="."]
+position = Vector2(-81, 21)
+
+[node name="Shirt" type="Node2D" parent="Skeleton"]
+script = ExtResource("3_cg8se")
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton/Shirt"]
+scale = Vector2(2, 2)
+texture = SubResource("CompressedTexture2D_wvv42")
+
+[node name="Pants" type="Node2D" parent="Skeleton"]
+script = ExtResource("4_02ow7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton/Pants"]
+scale = Vector2(2, 2)
+texture = SubResource("CompressedTexture2D_wvv42")
+
+[node name="Shoes" type="Node2D" parent="Skeleton"]
+script = ExtResource("5_mlsif")
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton/Shoes"]
+show_behind_parent = true
+light_mask = 3
+visibility_layer = 3
+scale = Vector2(2, 2)
+texture = SubResource("CompressedTexture2D_wvv42")
+
+[node name="Hair" type="Node2D" parent="Skeleton"]
+script = ExtResource("1_b253r")
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton/Hair"]
+scale = Vector2(2, 2)
+texture = SubResource("CompressedTexture2D_wvv42")
+
+[node name="CreatorScreen" type="CanvasLayer" parent="."]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+follow_viewport_enabled = true
+script = ExtResource("5_b253r")
+
+[node name="Control" type="Control" parent="CreatorScreen"]
+layout_mode = 3
+offset_left = 91.0
+offset_top = 141.0
+offset_right = 191.0
+offset_bottom = 241.0
+
+[node name="ColorRect" type="ColorRect" parent="CreatorScreen/Control"]
+light_mask = 3
+visibility_layer = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 74.5
+offset_top = 17.5
+offset_right = 163.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+color = Color(0.898462, 0.86986613, 0.87372565, 1)
+
+[node name="Hair" type="ColorRect" parent="CreatorScreen/Control/ColorRect"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 9.25
+offset_right = 80.0
+offset_bottom = 50.25
+color = Color(1, 1, 1, 0)
+
+[node name="Label" type="Label" parent="CreatorScreen/Control/ColorRect/Hair"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.0
+offset_top = -6.25
+offset_right = 17.0
+offset_bottom = 16.75
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Hair"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollectionButton" type="Button" parent="CreatorScreen/Control/ColorRect/Hair"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -30.25
+offset_right = 23.5
+offset_bottom = 0.75
+grow_horizontal = 2
+grow_vertical = 0
+text = "-->"
+script = ExtResource("6_j06l2")
+
+[node name="Shirt" type="ColorRect" parent="CreatorScreen/Control/ColorRect"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 181.0
+offset_right = 101.0
+offset_bottom = 222.0
+color = Color(1, 1, 1, 0)
+
+[node name="Label" type="Label" parent="CreatorScreen/Control/ColorRect/Shirt"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -42.0
+offset_top = -127.0
+offset_right = -4.0
+offset_bottom = -104.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Shirt"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollectionButton" type="Button" parent="CreatorScreen/Control/ColorRect/Shirt"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -46.0
+offset_top = -149.0
+offset_right = 1.0
+offset_bottom = -118.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "-->"
+
+[node name="Pants" type="ColorRect" parent="CreatorScreen/Control/ColorRect"]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 35.5
+offset_right = 226.0
+offset_bottom = 76.5
+color = Color(1, 1, 1, 0)
+
+[node name="Label" type="Label" parent="CreatorScreen/Control/ColorRect/Pants"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.26200002
+anchor_right = 0.5
+anchor_bottom = -0.26200002
+offset_left = -65.0
+offset_top = -22.758
+offset_right = -27.0
+offset_bottom = 0.24200058
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Pants"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollectionButton" type="Button" parent="CreatorScreen/Control/ColorRect/Pants"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -69.0
+offset_top = -57.5
+offset_right = -18.5
+offset_bottom = -26.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "-->"
+
+[node name="Shoes" type="ColorRect" parent="CreatorScreen/Control/ColorRect"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 55.5
+offset_right = 173.5
+offset_bottom = 95.0
+color = Color(1, 1, 1, 0)
+
+[node name="Label" type="Label" parent="CreatorScreen/Control/ColorRect/Shoes"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -15.25
+offset_top = -1.5
+offset_right = 26.75
+offset_bottom = 19.5
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Shoes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollectionButton" type="Button" parent="CreatorScreen/Control/ColorRect/Shoes"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.25
+offset_top = -24.0
+offset_right = 28.75
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "-->"
+
+[node name="ConfirmButton" type="Button" parent="CreatorScreen/Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -24.0
+offset_right = -192.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 8
+text = "Confirm"
+
+[connection signal="pressed" from="CreatorScreen/Control/ColorRect/Hair/CollectionButton" to="Skeleton/Hair" method="_on_collection_button_pressed"]
+[connection signal="pressed" from="CreatorScreen/Control/ColorRect/Shirt/CollectionButton" to="Skeleton/Shirt" method="_on_collection_button_pressed"]
+[connection signal="pressed" from="CreatorScreen/Control/ColorRect/Pants/CollectionButton" to="Skeleton/Pants" method="_on_collection_button_pressed"]
+[connection signal="pressed" from="CreatorScreen/Control/ColorRect/Shoes/CollectionButton" to="Skeleton/Shoes" method="_on_collection_button_pressed"]
+[connection signal="pressed" from="CreatorScreen/Control/ColorRect/ConfirmButton" to="." method="_on_confirm_button_pressed"]

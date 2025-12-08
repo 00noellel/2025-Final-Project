@@ -1,0 +1,91 @@
+[gd_scene load_steps=10 format=3 uid="uid://cvk4ssynigea2"]
+
+[ext_resource type="Texture2D" uid="uid://c33y3tyrxa3q3" path="res://scenes/mainMenuBg.png" id="1_1bs0d"]
+[ext_resource type="Script" uid="uid://ctwi0fuckoqjp" path="res://scripts/main_menu.gd" id="1_j65qu"]
+[ext_resource type="FontFile" uid="uid://c3gl0s4bsowyk" path="res://fonts/Mainstay.ttf" id="2_j65qu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mj3ed"]
+texture = ExtResource("1_1bs0d")
+modulate_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q66uv"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j65qu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bs0d"]
+bg_color = Color(0.69342947, 0.6934295, 0.69342935, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mj3ed"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1bs0d"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j65qu")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mj3ed")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.5
+offset_top = -33.0
+offset_right = 156.5
+offset_bottom = 56.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_q66uv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_j65qu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1bs0d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1bs0d")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_mj3ed")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1bs0d")
+text = "Start Game!"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -248.5
+offset_top = -133.0
+offset_right = 248.5
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8091352, 0.6771589, 0.8292956, 1)
+theme_override_fonts/font = ExtResource("2_j65qu")
+theme_override_font_sizes/font_size = 75
+text = "Chloe's Closet"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_start_pressed"]
